@@ -57,7 +57,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: Localization.locale.split('-')[0], // Pega apenas o código da língua (ex: 'pt')
+    lng: (Localization.getLocales()[0]?.languageCode ?? 'en') as string, // Cast para garantir compatibilidade de tipo
     fallbackLng: "en",
     interpolation: {
       escapeValue: false
