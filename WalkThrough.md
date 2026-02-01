@@ -30,6 +30,20 @@ Aplicação configurada nativamente nos idiomas:
 - **Espanhol (ES)**
 - **Japonês (JP)**
 
+### 🤖 Inteligência Artificial Corporativa
+
+O aplicativo conta com o **Elite AI Engine**, que gera:
+
+- **IA Daily Brief**: Resumos executivos diários traduzidos.
+- **Strategic Insights**: Análise preditiva de faturamento e recomendações de mercado de alto impacto.
+
+### 🔄 Camada de Integração (Enterprise Ready)
+
+Estrutura pronta para conexão com backend:
+
+- **Supabase Wrapper**: Cliente preparado para transição mock-to-real.
+- **Service Layer**: Abstração total de APIs para escalabilidade.
+
 ### 📱 Responsividade 100%
 
 Interface adaptável para smartphones e tablets, garantindo uma experiência premium em qualquer dispositivo.
