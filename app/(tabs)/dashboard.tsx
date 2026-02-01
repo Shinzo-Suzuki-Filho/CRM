@@ -1,8 +1,9 @@
 import { View, Text, ScrollView, Dimensions, ActivityIndicator } from 'react-native';
 import { LineChart, BarChart } from 'react-native-chart-kit';
 import { useTranslation } from 'react-i18next';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { DashboardService, DashboardData } from '../../services/api';
+import { AIService, AIInsight } from '../../services/ai';
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -17,15 +18,25 @@ const chartConfig = {
 };
 
 export default function DashboardScreen() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [loading, setLoading] = React.useState(true);
   const [data, setData] = React.useState(null as DashboardData | null);
+  const [aiInsight, setAiInsight] = React.useState(null as AIInsight | null);
+  const [brief, setBrief] = React.useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const result = await DashboardService.getPerformanceData();
         setData(result);
+        
+        if (result.revenue) {
+          const insight = await AIService.analyzePerformance(result.revenue);
+          setAiInsight(insight);
+        }
+        
+        const dailyBrief = await AIService.getDailyExecutiveBrief(i18n.language);
+        setBrief(dailyBrief);
       } catch (error) {
         console.error('Error fetching dashboard data:', error);
       } finally {
@@ -33,7 +44,7 @@ export default function DashboardScreen() {
       }
     };
     fetchData();
-  }, []);
+  }, [i18n.language]);
 
   if (loading || !data) {
     return (
@@ -118,11 +129,23 @@ export default function DashboardScreen() {
 
       <View className="mb-12">
         <Text className="text-text text-lg font-bold mb-4">{t('performanceSummary')}</Text>
-        <View className="bg-primary/10 p-5 rounded-2xl border border-primary/20">
+        <View className="bg-primary/10 p-5 rounded-2xl border border-primary/20 mb-4">
+          <Text className="text-primary text-sm font-bold mb-1 uppercase tracking-tighter">AI Daily Brief</Text>
           <Text className="text-primary text-sm leading-relaxed">
-            {t('dashboardInsight')}
+            {brief || t('dashboardInsight')}
           </Text>
         </View>
+
+        {aiInsight && (
+          <View className={`p-5 rounded-2xl border ${aiInsight.impact === 'high' ? 'bg-red-900/10 border-red-900/20' : 'bg-blue-900/10 border-blue-900/20'}`}>
+            <Text className={`text-sm font-bold mb-1 uppercase ${aiInsight.impact === 'high' ? 'text-red-500' : 'text-blue-500'}`}>
+              Strategic Insight: {aiInsight.title}
+            </Text>
+            <Text className="text-text text-sm leading-relaxed">
+              {aiInsight.recommendation}
+            </Text>
+          </View>
+        )}
       </View>
     </ScrollView>
   );
