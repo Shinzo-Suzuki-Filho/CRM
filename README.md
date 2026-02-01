@@ -101,7 +101,7 @@ Para detalhes técnicos e guias de uso, consulte:
 
 ## 🤝 Contato e Deploy
 
-Desenvolvido por **Antigravity AI**. Prepare-se para surpreender seus compradores com o desempenho deste aplicativo.
+Desenvolvido por **Shinzo Suzuki & Antigravity AI**. Prepare-se para surpreender seus compradores com o desempenho deste aplicativo.
 
 ---
 © 2026 Elite Premium Enterprise. Todos os direitos reservados.
