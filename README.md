@@ -1,7 +1,5 @@
 # 🏆 Elite Premium Enterprise Mobile App
 
-![Elite Premium Logo](assets/logo.png)
-
 ## 💎 Sobre o Projeto
 
 O **Elite Premium** é uma solução móvel de alto padrão desenvolvida especificamente para empresas de médio e grande porte. O foco principal é oferecer uma experiência de usuário luxuosa, performance excepcional e segurança de dados rigorosa, em total conformidade com a **LGPD (Lei Geral de Proteção de Dados)**.
