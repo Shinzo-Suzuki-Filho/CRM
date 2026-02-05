@@ -2,6 +2,8 @@
 
 ## 💎 Sobre o Projeto
 
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/4ee148a0-a3ec-4742-99de-1b799f1cebdd" />
+
 O **Elite Premium** é uma solução móvel de alto padrão desenvolvida especificamente para empresas de médio e grande porte. O foco principal é oferecer uma experiência de usuário luxuosa, performance excepcional e segurança de dados rigorosa, em total conformidade com a **LGPD (Lei Geral de Proteção de Dados)**.
 
 Este aplicativo é ideal para vendas, gestão de negócios e análise de métricas em ambientes corporativos que exigem sofisticação e confiabilidade.
